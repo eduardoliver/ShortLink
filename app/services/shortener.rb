@@ -1,11 +1,15 @@
+require 'digest/sha2'
+
 class Shortener
 
-  def initialize(url)
+  attr_reader :url
 
+  def initialize(url)
+    @url = url
   end
 
   def lookup_code
-    "1234567"
+    Digest::SHA256.hexdigest(url)[0..6]
   end
 
 end
