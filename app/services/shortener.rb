@@ -1,4 +1,3 @@
-require 'digest/sha2'
 
 class Shortener
 
@@ -29,7 +28,7 @@ class Shortener
   end
 
   def get_fresh_code(iterator)
-    Digest::SHA256.hexdigest(url)[iterator..iterator+6]
+    SecureRandom.uuid[iterator..iterator+6]
   end
 
 end
