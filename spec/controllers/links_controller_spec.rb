@@ -12,6 +12,7 @@ RSpec.describe LinksController, type: :controller do
     link = assigns(:link)
     expect(link.original_url).to eq(url)
     expect(link.valid?).to be(true)
+    expect(link.persisted?).to be(true)
     expect(link.lookup_code.length).to eq(7)
 
     expect(response).to render_template('create')
