@@ -19,11 +19,9 @@ class Shortener
       # 3. If it does not exit get out of lookup and return code
       # 4. Otherwise get another code and loop again
 
-    i = 0
     loop do
       code = get_fresh_code
       break code unless link_model.exists?(lookup_code: code)
-      i = i + 1
     end
   end
 
