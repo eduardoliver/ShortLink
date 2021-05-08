@@ -32,11 +32,14 @@ RSpec.describe Shortener do
     expect(code_a).to eq(code_b)
   end
 
-  it "generates a unique record with a unique lookup code" do
+  it "generates a unique record with a unique lookup code even for the same URL" do
     url = "https://www.favouritewebsite.com/articles/how-to-cook"
     shortener = Shortener.new(url)
     link = shortener.generate_short_link
     expect(link.valid?).to be(true)
+
+    link2 = shortener.generate_short_link
+    expect(link2.valid?).to be(true)
 
   end
 

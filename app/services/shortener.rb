@@ -15,7 +15,17 @@ class Shortener
 
 
   def lookup_code
-    Digest::SHA256.hexdigest(url)[0..6]
+      # 1. Get loop up code
+      # 2. Check if it already exits
+      # 3. If it does not exit get out of lookup and return code
+      # 4. Otherwise get another code and loop again
+
+    i = 0
+    loop do
+      code = Digest::SHA256.hexdigest(url)[i..i+6]
+      break code unless link_model.exists?(lookup_code: code)
+      i = i + 1
+    end
   end
 
 end
