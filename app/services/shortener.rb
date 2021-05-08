@@ -25,6 +25,8 @@ class Shortener
     end
   end
 
+  private
+
   def get_fresh_code
     SecureRandom.uuid[0..6]
   end
