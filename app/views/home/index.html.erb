@@ -2,7 +2,7 @@
 </br>
 </br>
 
-<%= form_for @link, remote: true do|form| %>
+<%= form_with(model: @link, local: false) do|form| %>
   <%= form.text_field :original_url %>
   <%= form.submit %>
 <% end %>
