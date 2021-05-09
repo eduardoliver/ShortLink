@@ -11,6 +11,9 @@ class LinksController < ApplicationController
     end
   end
 
+  def show
+    head :ok
+  end
 
   private
 
