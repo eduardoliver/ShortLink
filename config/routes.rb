@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   post "/links" => 'links#create'
 
+  # this functions as a catch all. this is not a good implementation as it will
+  # break the public pages in public directory
   get "/:lookup_code" => 'links#show'
 end

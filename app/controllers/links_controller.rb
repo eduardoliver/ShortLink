@@ -12,7 +12,8 @@ class LinksController < ApplicationController
   end
 
   def show
-    head :ok
+    @link = Link.find_by(lookup_code: lookup_code_params)
+    redirect_to @link.original_url
   end
 
   private
@@ -20,4 +21,9 @@ class LinksController < ApplicationController
   def link_params
     params.require(:link).permit(:original_url)
   end
+
+  def lookup_code_params
+    params.require(:lookup_code)
+  end
+
 end
