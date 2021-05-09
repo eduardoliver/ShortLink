@@ -1,13 +1,19 @@
-</br>
-</br>
-</br>
+<div class="container p-5">
 
-<%= form_with(model: @link, local: false) do|form| %>
-  <%= form.text_field :original_url %>
-  <%= form.submit %>
-<% end %>
+  <div class="card">
+    <div class="card-body">
+      <%= form_with(model: @link, local: false) do|form| %>
+      <h5 class:'card-title'>Enter a URL to shorten</h5>
+      <div class="input-group">
+        <%= form.text_field :original_url, class:'form-control', placeholder:"http://example.com" %>
+        <%= form.submit 'Shorten', class:'btn btn-primary input-group-append' %>
+      </div>
+      <% end %>
+    </div>
+    <div id="short-link">
 
+    </div>
 
-<div id="short-link">
+  </div>
 
 </div>
